@@ -40,6 +40,10 @@ COPY --chown=$MAMBA_USER:$MAMBA_USER projects /home/$MAMBA_USER/projects
 COPY --chown=$MAMBA_USER:$MAMBA_USER entrypoint.sh /opt/entrypoint.sh
 RUN chmod +x /opt/entrypoint.sh
 
+# Change logo EUCANScreen
+COPY --chown=$MAMBA_USER:$MAMBA_USER main_logo.png /temp/main_logo.C2DWUNGn.png
+RUN cp /temp/main_logo.C2DWUNGn.png /home/mambauser/front/_app/immutable/assets
+
 ENV APP_PORT=3000
 ENV APP_HOST=0.0.0.0
 EXPOSE 3000
